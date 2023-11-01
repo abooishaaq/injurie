@@ -54,7 +54,7 @@ const AuthNested = ({ children }: { children: React.ReactNode }) => {
           </Dropdown>
         </nav>
       </header>
-      <Breadcrumb className="max-w-3xl mx-auto my-8">
+      <Breadcrumb className="max-w-3xl mx-auto my-8 px-4">
         <Breadcrumb.Item>
           <Link href="/">Home</Link>
         </Breadcrumb.Item>
@@ -69,7 +69,7 @@ const AuthNested = ({ children }: { children: React.ReactNode }) => {
             </Breadcrumb.Item>
           ))}
       </Breadcrumb>
-      <main className="max-w-3xl mx-auto">{children}</main>
+      <main className="max-w-3xl mx-auto px-4">{children}</main>
     </>
   );
 };
