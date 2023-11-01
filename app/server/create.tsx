@@ -45,6 +45,7 @@ const createReport = async (formData: any) => {
       bodyPartsToPrisma[bodyPart as keyof typeof bodyPartsToPrisma];
     await prisma.injury.create({
       data: {
+        name,
         dateTime,
         part: injury,
         details: bodyParts[bodyPart],
