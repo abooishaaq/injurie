@@ -15,7 +15,7 @@ const ViewReport = async ({ params }: { params: { id: string } }) => {
           {report.name} - {capsKebabCaseToSentenceCase(report.part)}
         </h2>
         <p>{report.details}</p>
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-600">
           occured at {new Date(report.dateTime).toLocaleString()}
         </p>
         <p className="text-gray-600 mb-4">
