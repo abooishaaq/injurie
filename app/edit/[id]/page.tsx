@@ -1,30 +1,14 @@
 "use client";
 
 import { Alert, Button, Form, Input, Spin, TimePicker } from "antd";
-import { BodyComponent } from "reactjs-human-body";
 import { DatePicker } from "antd";
 import { useEffect, useState } from "react";
 import updateReport from "../../server/update";
-import { camelCaseToSentenceCase, formItemLayout } from "../../utils";
+import { formItemLayout } from "../../utils";
 import TextArea from "antd/es/input/TextArea";
 import { getReport } from "@/app/server/view";
 import day from "dayjs";
 
-const bodyPartsAll = [
-  "head",
-  "leftShoulder",
-  "rightShoulder",
-  "leftArm",
-  "rightArm",
-  "chest",
-  "stomach",
-  "leftLeg",
-  "rightLeg",
-  "rightHand",
-  "leftHand",
-  "leftFoot",
-  "rightFoot",
-];
 
 const EditReport = ({ params }: { params: { id: string } }) => {
   const [form] = Form.useForm();
@@ -38,7 +22,7 @@ const EditReport = ({ params }: { params: { id: string } }) => {
       setReport(JSON.parse(report));
       setLoading(false);
     });
-  }, []);
+  }, [params.id]);
 
   const onFinish = async (values: any) => {
     values.part = report.part;
