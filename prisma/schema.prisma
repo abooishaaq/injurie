@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  injuries  Injury[]
+}
+
+enum Part {
+  HEAD
+  LEFT_SHOULDER
+  RIGHT_SHOULDER
+  LEFT_ARM
+  RIGHT_ARM
+  CHEST
+  STOMACH
+  LEFT_LEG
+  RIGHT_LEG
+  RIGHT_HAND
+  LEFT_HAND
+  LEFT_FOOT
+  RIGHT_FOOT
+}
+
+model Injury {
+  id        String   @id @default(cuid())
+  name      String?
+  part      Part
+  details   String
+  dateTime  DateTime
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
