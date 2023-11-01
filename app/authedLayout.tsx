@@ -37,7 +37,7 @@ const AuthNested = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <header className="max-w-3xl mx-auto">
+      <header className="max-w-3xl mx-auto px-4">
         <nav className="flex justify-between items-center py-4">
           <Link href="/" className="text-3xl">
             Injurie
